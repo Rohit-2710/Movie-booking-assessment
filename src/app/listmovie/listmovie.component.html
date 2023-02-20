@@ -1,0 +1,30 @@
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      </head>
+      <body>
+        <table class="table container">
+            <tr>
+                <th>Movie ID</th>
+                <th>Movie Name</th>
+                <th>Movie Date</th>
+                <th>Number of tickets booked</th>
+                <th>Total Amount</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor="let e of movies">
+                <td>{{e.movieId}}</td>
+                <td>{{e.movieName}}</td>
+                <td>{{e.movieDate}}</td>
+                <td>{{e.numberTickets}}</td>
+                <td>{{e.numberTickets*150}}</td>
+                <td><button (click)="update(e.movieId)" class="btn btn-primary" type="button">UPDATE</button></td>
+                <td><button (click)="delete(e.movieId)" class="btn btn-danger" type="button">DELETE</button></td>
+            </tr>
+
+        </table>
+      </body>
+</html>

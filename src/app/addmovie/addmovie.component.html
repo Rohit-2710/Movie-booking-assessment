@@ -1,0 +1,123 @@
+
+
+  <form [formGroup]="movielist">
+    <div class="mb-3">
+      <label for="movieid" class="form-label">MovieId</label>
+      <input
+        type="number "
+        class="form-control"
+        id="movieid"
+        name="movieid"
+        formControlName="movieid"
+      />
+      <div
+        *ngIf="movielist.controls['movieid'].errors?.['required']"
+        class="alert alert-danger"
+      >
+        This field is required
+      </div>
+      <div
+        *ngIf="movielist.controls['movieid'].errors?.['pattern']"
+        class="alert alert-danger"
+      >
+        number should be between 1 to 300
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="movie" class="form-label">MovieName</label>
+        <input
+          type="text"
+          class="form-control"
+          name="moviename"
+          formControlName="moviename"
+        />
+        <div
+          *ngIf="movielist.controls['moviename'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['moviename'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          Movie can have alphanumeric of maximum of 20 character
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="text" for="exampleCheck1">MovieDate</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="movieBookingDate"
+          name="movieBookingDate"
+        />
+        <div
+          *ngIf="movielist.controls['movieBookingDate'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['movieBookingDate'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          The Date format is "YYYY-MM-DD"
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="text" for="exampleCheck1" name="moviedate"
+          >noOfTicket</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          name="noOfTickets"
+          formControlName="noOfTickets"
+        />
+        <div
+          *ngIf="movielist.controls['noOfTickets'].errors?.['required']"
+          class="alert alert-danger"
+        >
+          This field is required
+        </div>
+        <div
+          *ngIf="movielist.controls['noOfTickets'].errors?.['pattern']"
+          class="alert alert-danger"
+        >
+          Maximum no of Tickets is 15
+        </div>
+      </div>
+      <button
+      type="submit"
+      class="btn btn-primary"
+      (click)="add(movielist.value)"
+    >
+      Add MovieBooking
+    </button>
+  </form>
+
+  <!-- <form #a="ngForm" (ngSubmit)="add(a.value)">
+    <table class="table table-bordered container">
+        <tr>
+            <td>Movie ID</td>
+            <td><input type="number" name="id" ngModel><br></td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td><input type="text" name="name" ngModel></td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td><input type="text" name="name" ngModel></td>
+        </tr>
+        <tr>
+            <td>No. of tickets</td>
+            <td><input type="number" name="name" ngModel></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="ADD"></td>
+        </tr>
+    </table>
+</form> -->
